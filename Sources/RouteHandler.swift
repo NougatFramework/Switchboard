@@ -8,3 +8,9 @@
 
 import Foundation
 
+protocol RouteHandlingType {
+    
+    func perform(request: MatchedRequest) -> Response
+    
+}
+
