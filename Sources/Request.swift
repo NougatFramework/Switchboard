@@ -37,11 +37,18 @@ public struct MatchedRequest {
 	public let request: Request
 	public let route: Route
 	
-	public func param<T: PathType>(key: String) -> T? {
-		let wildcard = ":" + key
-		guard let wildcardIndex = route.path.indexOfWildcard(wildcard) else { return nil }
+    internal func paramAtIndex<T: PathType>(index: Int) -> T {
+        let wildcardKey = route.path.wildcards[index]
+        return param(wildcardKey: wildcardKey)
+    }
+    
+    private func param<T: PathType>(wildcardKey wildcardKey: String) -> T {
+        guard let wildcardIndex = route.path.indexOfWildcard(wildcardKey) else {
+            preconditionFailure("No wildcard with key \(wildcardKey)")
+        }
+        
 		let value = request.path.components[wildcardIndex]
-		return T.fromString(value)
-	}
-	
+		return T.fromString(value)!
+    }
+    
 }
