@@ -31,7 +31,7 @@ router.get("/posts/:post_id") { (request, postID: Int) -> Response in
 	let body = "<h1>Post \(postID)</h1>"
 	return Response(statusCode: .OK, headers: [
 		"Content-Type": "text/html",
-		"Content-Length": body.characters.count
+		"Content-Length": String(body.characters.count)
 	], body: body)
 }
 
