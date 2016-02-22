@@ -14,3 +14,16 @@ protocol RouteHandlingType {
     
 }
 
+struct RouteHandlerWithNoArgs: RouteHandlingType {
+    
+    private let handler: (MatchedRequest) -> Response
+    init(handler: (MatchedRequest) -> Response) {
+        self.handler = handler
+    }
+    
+    func perform(request: MatchedRequest) -> Response {
+        return handler(request)
+    }
+    
+}
+
