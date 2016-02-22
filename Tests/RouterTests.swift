@@ -95,8 +95,7 @@ class RouterTests: XCTestCase {
 	func testWildcardRoutes() {
 		let router = Router()
 		
-		router.get("/posts/:post_id", pathTypes: [Int.self]) { (request) -> Response in
-			guard let postID: Int = request.param("post_id") else { return Response(statusCode: .NotFound, headers: [:], body: "") }
+		router.get("/posts/:post_id") { (request, postID: Int) -> Response in
 			return Response(statusCode: .OK, headers: [:], body: "Post \(postID)")
 		}
 		
