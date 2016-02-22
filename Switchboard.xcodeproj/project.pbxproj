@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324A9FBF1C7BA99900D7A142 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A9FBE1C7BA99900D7A142 /* RouteHandler.swift */; };
 		C362006F1C40732600CE0AA4 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362006E1C40732600CE0AA4 /* RouterTests.swift */; };
 		C374CB681C4001FA00F0BB97 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374CB611C4001FA00F0BB97 /* Path.swift */; };
 		C374CB691C4001FA00F0BB97 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374CB621C4001FA00F0BB97 /* Request.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		324A9FBE1C7BA99900D7A142 /* RouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteHandler.swift; sourceTree = "<group>"; };
 		C362006E1C40732600CE0AA4 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		C374CB611C4001FA00F0BB97 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		C374CB621C4001FA00F0BB97 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				C374CB621C4001FA00F0BB97 /* Request.swift */,
 				C374CB631C4001FA00F0BB97 /* Response.swift */,
 				C374CB641C4001FA00F0BB97 /* Route.swift */,
+				324A9FBE1C7BA99900D7A142 /* RouteHandler.swift */,
 				C374CB651C4001FA00F0BB97 /* Router.swift */,
 				C374CB661C4001FA00F0BB97 /* StatusCode.swift */,
 				C3A8563C1C4D50320065E156 /* WildcardPath.swift */,
@@ -221,6 +224,7 @@
 			files = (
 				C374CB6D1C4001FA00F0BB97 /* StatusCode.swift in Sources */,
 				C374CB6A1C4001FA00F0BB97 /* Response.swift in Sources */,
+				324A9FBF1C7BA99900D7A142 /* RouteHandler.swift in Sources */,
 				C374CB681C4001FA00F0BB97 /* Path.swift in Sources */,
 				C374CB691C4001FA00F0BB97 /* Request.swift in Sources */,
 				C3A8563D1C4D50320065E156 /* WildcardPath.swift in Sources */,
