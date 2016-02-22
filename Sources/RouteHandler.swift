@@ -27,3 +27,16 @@ struct RouteHandlerWithNoArgs: RouteHandlingType {
     
 }
 
+struct RouteHandlerWithOneArg<A: PathType>: RouteHandlingType {
+    
+    private let handler: (MatchedRequest, A) -> Response
+    init(handler: (MatchedRequest, A) -> Response) {
+        self.handler = handler
+    }
+    
+    func perform(request: MatchedRequest) -> Response {
+        let param1: A = request.paramAtIndex(0)
+        return handler(request, param1)
+    }
+    
+}
