@@ -27,14 +27,7 @@ router.get("/") { (request) -> Response in
 	], body: "<h1>Welcome!</h1>")
 }
 
-router.get("/posts/:post_id", pathTypes: [Int.self]) { (request) -> Response in
-	guard let postID: Int = request.param("post_id") else {
-		return Response(statusCode: .NotFound, headers: [
-			"Content-Type": "text/html",
-			"Content-Length": "17"
-		], body: "<h1>Not Found</h1>")
-	}
-	
+router.get("/posts/:post_id") { (request, postID: Int) -> Response in
 	let body = "<h1>Post \(postID)</h1>"
 	return Response(statusCode: .OK, headers: [
 		"Content-Type": "text/html",
