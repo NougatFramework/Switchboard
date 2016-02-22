@@ -51,3 +51,15 @@ extension Router {
     
 }
 
+extension Router {
+
+    private func addRoute<A: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
+		let routeHandler = RouteHandlerWithOneArg(handler: handler)
+        routes += [Route(method: method, path: path, pathTypes: [A.self], middleware: middleware, handler: routeHandler)]
+	}
+
+	public func get<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
+		addRoute(.GET, path: path, middleware: middleware, handler: handler)
+	}
+    
+}
