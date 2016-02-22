@@ -2,15 +2,15 @@
 
 public struct Route {
 
-	public typealias RouteHandler = (request: MatchedRequest) -> Response
 	public typealias Middleware = (request: MatchedRequest, next: (MatchedRequest) -> Response) -> Response
 	
 	public let method: Method
 	public let path: WildcardPath
 	public let middleware: [Middleware]
-	public let handler: RouteHandler
 	
-	public init(method: Method, path: Path, pathTypes: [PathType.Type] = [], middleware: [Middleware] = [], handler: RouteHandler) {
+    let handler: RouteHandlingType
+	
+	init(method: Method, path: Path, pathTypes: [PathType.Type] = [], middleware: [Middleware] = [], handler: RouteHandlingType) {
 		self.method = method
 		self.path = WildcardPath(path: path, pathTypes: pathTypes)
 		self.middleware = middleware
@@ -40,7 +40,7 @@ public struct Route {
 			})
 		}
 		
-		return handler(request: request)
+        return handler.perform(request)
 	}
 
 }
