@@ -26,14 +26,6 @@ public final class Router {
 	public private(set) var routes: [Route] = []
 	public var globalMiddleware: [Route.Middleware] = []
 
-	private func addRoute(method: Method, path: Path, pathTypes: [PathType.Type] = [], middleware: [Route.Middleware] = [], handler: Route.RouteHandler) {
-		routes += [Route(method: method, path: path, pathTypes: pathTypes, middleware: middleware, handler: handler)]
-	}
-
-	public func get(path: Path, pathTypes: [PathType.Type] = [], middleware: [Route.Middleware] = [], handler: Route.RouteHandler) {
-		addRoute(.GET, path: path, pathTypes: pathTypes, middleware: middleware, handler: handler)
-	}
-
 	public func route(request: Request) throws -> Response {
 		for route in routes {
 			if route.matches(request) {
@@ -45,3 +37,17 @@ public final class Router {
 	}
 
 }
+
+extension Router {
+
+    private func addRoute(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
+		let routeHandler = RouteHandlerWithNoArgs(handler: handler)
+        routes += [Route(method: method, path: path, pathTypes: [], middleware: middleware, handler: routeHandler)]
+	}
+
+	public func get(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
+		addRoute(.GET, path: path, middleware: middleware, handler: handler)
+	}
+    
+}
+
