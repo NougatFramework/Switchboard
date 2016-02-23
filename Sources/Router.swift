@@ -48,7 +48,23 @@ extension Router {
 	public func get(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
 		addRoute(.GET, path: path, middleware: middleware, handler: handler)
 	}
-    
+	
+	public func post(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
+		addRoute(.POST, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func put(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
+		addRoute(.PUT, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func delete(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
+		addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func patch(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
+		addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
+	}
+	
 }
 
 extension Router {
@@ -60,6 +76,22 @@ extension Router {
 
 	public func get<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
 		addRoute(.GET, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func post<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
+		addRoute(.POST, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func put<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
+		addRoute(.PUT, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func delete<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
+		addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func patch<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
+		addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
 	}
     
 }
