@@ -40,7 +40,7 @@ public final class Router {
 
 extension Router {
 
-    private func addRoute(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
+    public func addRoute(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
 		let routeHandler = RouteHandlerWithNoArgs(handler: handler)
         routes += [Route(method: method, path: path, pathTypes: [], middleware: middleware, handler: routeHandler)]
 	}
@@ -53,7 +53,7 @@ extension Router {
 
 extension Router {
 
-    private func addRoute<A: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
+    public func addRoute<A: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
 		let routeHandler = RouteHandlerWithOneArg(handler: handler)
         routes += [Route(method: method, path: path, pathTypes: [A.self], middleware: middleware, handler: routeHandler)]
 	}
