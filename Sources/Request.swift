@@ -14,10 +14,10 @@ public enum Method: String {
 
 public struct Request {
 
-	let method: Method
-	let path: Path
-	let headers: [(String, String)]
-	let body: String? // FIXME: Data instead?
+	public let method: Method
+	public let path: Path
+	public let headers: [(String, String)]
+	public let body: String? // FIXME: Data instead?
 	
 	init(method: Method, path: Path, headers: [(String, String)] = [], body: String? = nil) {
 		self.method = method
