@@ -95,3 +95,32 @@ extension Router {
 	}
     
 }
+
+extension Router {
+
+    public func addRoute<A: PathType, B: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
+		let routeHandler = RouteHandlerWithTwoArgs(handler: handler)
+        routes += [Route(method: method, path: path, pathTypes: [A.self, B.self], middleware: middleware, handler: routeHandler)]
+	}
+
+	public func get<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
+		addRoute(.GET, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func post<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
+		addRoute(.POST, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func put<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
+		addRoute(.PUT, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func delete<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
+		addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
+	}
+	
+	public func patch<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
+		addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
+	}
+    
+}
