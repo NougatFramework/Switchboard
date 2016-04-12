@@ -26,10 +26,6 @@ public struct Request {
 		self.body = body
 	}
 	
-//	init(method: Method, path: String, headers: [(String, String)] = [], body: String? = nil) {
-//		self.init(method: method, path: Path(stringLiteral: path), headers: headers, body: body)
-//	}
-	
 }
 
 public struct MatchedRequest {
