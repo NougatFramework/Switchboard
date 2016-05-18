@@ -39,6 +39,14 @@ extension Response {
 	
 }
 
+extension Response {
+
+	init(error: ErrorType) {
+		self = self.dynamicType.plainText("\(error)", statusCode: .InternalServerError)
+	}
+
+}
+
 extension Response: Equatable {}
 
 public func ==(lhs: Response, rhs: Response) -> Bool {
@@ -47,13 +55,3 @@ public func ==(lhs: Response, rhs: Response) -> Bool {
 	guard lhs.body == rhs.body else { return false }
 	return true
 }
-
-// NOTE: I'd love for this to be possible. Then, all Swift errors could easily translate to 500 HTTP errors.
-//       However, Swift doesn't allow inheritence clauses in protocol extensions, so this isn't possible right now.
-//extension ErrorType: ResponseEncodable {
-//	
-//	public func asResponse() -> Response {
-//		return Response
-//	}
-//	
-//}
