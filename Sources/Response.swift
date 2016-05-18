@@ -19,6 +19,26 @@ public struct Response {
 
 }
 
+extension Response {
+	
+	static func plainText(content: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
+		return make(content, contentType: "text/plain", statusCode: statusCode, headers: headers)
+	}
+	
+	static func html(content: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
+		return make(content, contentType: "text/html", statusCode: statusCode, headers: headers)
+	}
+	
+	private static func make(content: String, contentType: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
+		var responseHeaders = headers
+		responseHeaders["Content-Type"] = contentType
+		responseHeaders["Content-Length"] = "\(content.utf8.count)"
+		
+		return self.init(statusCode: statusCode, headers: responseHeaders, body: content)
+	}
+	
+}
+
 extension Response: Equatable {}
 
 public func ==(lhs: Response, rhs: Response) -> Bool {
