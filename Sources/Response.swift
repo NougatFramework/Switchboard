@@ -1,5 +1,3 @@
-
-
 public protocol ResponseEncodable {
 	
 	func asResponse() -> Response
