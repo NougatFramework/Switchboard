@@ -10,11 +10,7 @@ extension RoutingError: ResponseEncodable {
 	public func asResponse() -> Response {
 		switch self {
 			case let .NotFound(method, path):
-				let html = "<h1><pre>Could not \(method) \(path)</pre></h1>"
-				return Response(statusCode: .NotFound, headers: [
-					"Content-Type": "text/html",
-					"Content-Length": String(html.characters.count)
-				], body: html)
+				return Response.html("<h1><pre>Could not \(method) \(path)</pre></h1>", statusCode: .NotFound)
 		}
 	}
 	
