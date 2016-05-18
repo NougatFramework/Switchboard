@@ -47,6 +47,14 @@ extension Response {
 
 }
 
+extension Response: ResponseEncodable {
+	
+	public func asResponse() -> Response {
+		return self
+	}
+	
+}
+
 extension Response: Equatable {}
 
 public func ==(lhs: Response, rhs: Response) -> Bool {
