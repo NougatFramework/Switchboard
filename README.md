@@ -21,18 +21,11 @@ import Switchboard
 
 let router = Router()
 router.get("/") { (request) -> Response in
-	return Response(statusCode: .OK, headers: [
-		"Content-Type": "text/html",
-		"Content-Length": "17"
-	], body: "<h1>Welcome!</h1>")
+	return Response.html(body: "<h1>Welcome!</h1>")
 }
 
 router.get("/posts/:post_id") { (request, postID: Int) -> Response in
-	let body = "<h1>Post \(postID)</h1>"
-	return Response(statusCode: .OK, headers: [
-		"Content-Type": "text/html",
-		"Content-Length": String(body.characters.count)
-	], body: body)
+	return Response.html(body: "<h1>Post \(postID)</h1>")
 }
 
 let response = try! router.route(Request(method: .GET, path: "/posts/123"))
