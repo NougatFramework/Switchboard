@@ -19,20 +19,20 @@ public struct Response {
 
 extension Response {
 	
-	static func plainText(content: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
-		return make(content, contentType: "text/plain", statusCode: statusCode, headers: headers)
+	static func plainText(body: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
+		return make(body, contentType: "text/plain", statusCode: statusCode, headers: headers)
 	}
 	
-	static func html(content: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
-		return make(content, contentType: "text/html", statusCode: statusCode, headers: headers)
+	static func html(body: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
+		return make(body, contentType: "text/html", statusCode: statusCode, headers: headers)
 	}
 	
-	private static func make(content: String, contentType: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
+	private static func make(body: String, contentType: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
 		var responseHeaders = headers
 		responseHeaders["Content-Type"] = contentType
 		responseHeaders["Content-Length"] = "\(content.utf8.count)"
 		
-		return self.init(statusCode: statusCode, headers: responseHeaders, body: content)
+		return self.init(statusCode: statusCode, headers: responseHeaders, body: body)
 	}
 	
 }
