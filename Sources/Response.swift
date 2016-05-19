@@ -30,7 +30,7 @@ extension Response {
 	private static func make(body: String, contentType: String, statusCode: StatusCode = .OK, headers: [String: String] = [:]) -> Response {
 		var responseHeaders = headers
 		responseHeaders["Content-Type"] = contentType
-		responseHeaders["Content-Length"] = "\(content.utf8.count)"
+		responseHeaders["Content-Length"] = "\(body.utf8.count)"
 		
 		return self.init(statusCode: statusCode, headers: responseHeaders, body: body)
 	}
