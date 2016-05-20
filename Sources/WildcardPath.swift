@@ -70,25 +70,3 @@ public func ==(lhs: WildcardPath, rhs: WildcardPath) -> Bool {
 	
 	return true
 }
-
-public protocol PathType {
-
-	static func fromString(string: String) -> Self?
-
-}
-
-extension Int: PathType {
-
-	public static func fromString(string: String) -> Int? {
-		return Int(string)
-	}
-
-}
-
-extension String: PathType {
-
-	public static func fromString(string: String) -> String? {
-		return String(string)
-	}
-
-}
