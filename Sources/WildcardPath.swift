@@ -24,22 +24,18 @@ public struct WildcardPath {
 	}
 	
 	public func matches(path: Path) -> Bool {
-		guard self.path.components.count == path.components.count else { return false }
+        guard self.path.components.count == path.components.count else { return false }
+        
 		for (selfPathComponent, otherPathComponent) in zip(self.path.components, path.components) {
 			if selfPathComponent.hasPrefix(":") {
 				guard let wildcardIndex = wildcards.indexOf(selfPathComponent) else { return false }
 				
 				let pathType = pathTypes[wildcardIndex]
-				
-				if let _ = pathType.fromString(otherPathComponent) {
-					continue
-				}
-				else {
-					return false
-				}
+				guard pathType.fromString(otherPathComponent) != nil else { return false }
 			}
-			
-			guard selfPathComponent == otherPathComponent else { return false }
+            else {
+                guard selfPathComponent == otherPathComponent else { return false }
+            }
 		}
 		
 		return true
