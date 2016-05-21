@@ -2,7 +2,7 @@
 
 public struct Route {
 
-	public typealias Middleware = (request: MatchedRequest, next: (MatchedRequest) throws -> Response) throws -> Response
+	public typealias Middleware = (request: Request, next: (Request) throws -> Response) throws -> Response
 	
 	public let method: Method
 	public let wildcardPath: WildcardPath
@@ -28,11 +28,10 @@ public struct Route {
 	}
 	
 	public func handle(request: Request) throws -> Response {
-		let matchedRequest = MatchedRequest(request: request, route: self)
-		return try handle(matchedRequest, middlewareGenerator: middleware.generate())
+		return try handle(request, middlewareGenerator: middleware.generate())
 	}
 	
-	private func handle(request: MatchedRequest, middlewareGenerator: IndexingGenerator<[Middleware]>) throws -> Response {
+	private func handle(request: Request, middlewareGenerator: IndexingGenerator<[Middleware]>) throws -> Response {
 		var mutableMiddlewareGenerator = middlewareGenerator
 		if let middleware = mutableMiddlewareGenerator.next() {
 			return try middleware(request: request, next: { (aRequest) -> Response in
@@ -40,8 +39,9 @@ public struct Route {
 			})
 		}
 		
-        guard let response = handler.perform(request) else {
-            throw RoutingError.NotFound(request.request.method, request.request.path)
+        let matchedRequest = MatchedRequest(request: request, route: self)
+        guard let response = handler.perform(matchedRequest) else {
+            throw RoutingError.NotFound(request.method, request.path)
         }
         
         return response
