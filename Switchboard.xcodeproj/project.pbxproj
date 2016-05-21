@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		324A9FBF1C7BA99900D7A142 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A9FBE1C7BA99900D7A142 /* RouteHandler.swift */; };
+		C353DDCE1CF0CDE500203F6E /* MatchedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353DDCD1CF0CDE500203F6E /* MatchedRequest.swift */; };
 		C362006F1C40732600CE0AA4 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362006E1C40732600CE0AA4 /* RouterTests.swift */; };
 		C374CB681C4001FA00F0BB97 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374CB611C4001FA00F0BB97 /* Path.swift */; };
 		C374CB691C4001FA00F0BB97 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374CB621C4001FA00F0BB97 /* Request.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		324A9FBE1C7BA99900D7A142 /* RouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteHandler.swift; sourceTree = "<group>"; };
+		C353DDCD1CF0CDE500203F6E /* MatchedRequest.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = MatchedRequest.swift; sourceTree = "<group>"; };
 		C362006E1C40732600CE0AA4 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		C374CB611C4001FA00F0BB97 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		C374CB621C4001FA00F0BB97 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		C39A9E851C3F5AA00092B90C /* Switchboard */ = {
 			isa = PBXGroup;
 			children = (
+				C353DDCD1CF0CDE500203F6E /* MatchedRequest.swift */,
 				C374CB611C4001FA00F0BB97 /* Path.swift */,
 				C3EC44EE1CEE57B100413649 /* PathType.swift */,
 				C374CB621C4001FA00F0BB97 /* Request.swift */,
@@ -230,6 +233,7 @@
 				C3EC44EF1CEE57B100413649 /* PathType.swift in Sources */,
 				324A9FBF1C7BA99900D7A142 /* RouteHandler.swift in Sources */,
 				C374CB681C4001FA00F0BB97 /* Path.swift in Sources */,
+				C353DDCE1CF0CDE500203F6E /* MatchedRequest.swift in Sources */,
 				C374CB691C4001FA00F0BB97 /* Request.swift in Sources */,
 				C3A8563D1C4D50320065E156 /* WildcardPath.swift in Sources */,
 				C374CB6B1C4001FA00F0BB97 /* Route.swift in Sources */,

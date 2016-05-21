@@ -18,33 +18,14 @@ public struct Request {
 	public let path: Path
 	public let headers: [(String, String)]
 	public let body: String? // FIXME: Data instead?
+	public let query: [String: String]
 	
-	init(method: Method, path: Path, headers: [(String, String)] = [], body: String? = nil) {
+	init(method: Method, path: Path, headers: [(String, String)] = [], query: [String: String] = [:], body: String? = nil) {
 		self.method = method
 		self.path = path
 		self.headers = headers
+		self.query = query
 		self.body = body
 	}
 	
-}
-
-public struct MatchedRequest {
-	
-	public let request: Request
-	public let route: Route
-	
-    internal func paramAtIndex<T: PathType>(index: Int) -> T? {
-        let wildcardKey = route.wildcardPath.wildcards[index]
-        return param(wildcardKey: wildcardKey)
-    }
-    
-    private func param<T: PathType>(wildcardKey wildcardKey: String) -> T? {
-        guard let wildcardIndex = route.wildcardPath.indexOfWildcard(wildcardKey) else {
-            return nil
-        }
-        
-		let value = request.path.components[wildcardIndex]
-		return T.fromString(value)
-    }
-    
 }
