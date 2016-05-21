@@ -31,3 +31,11 @@ extension Path: StringLiteralConvertible {
 	}
 
 }
+
+extension Path: CustomStringConvertible {
+    
+    public var description: String {
+        return components.joinWithSeparator("/")
+    }
+    
+}

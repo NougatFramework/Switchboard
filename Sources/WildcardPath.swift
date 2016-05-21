@@ -16,7 +16,7 @@ public struct WildcardPath {
 	
 	public init(path: Path, pathTypes: [PathType.Type]) {
         let wildcards = path.components.filter { $0.hasPrefix(":") }
-        precondition(wildcards.count == pathTypes.count)
+        precondition(wildcards.count == pathTypes.count, "Number of wildcards in the path '\(path)' does not match the number of types provided.")
         
 		self.path = path
 		self.pathTypes = pathTypes
