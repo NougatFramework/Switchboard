@@ -41,88 +41,88 @@ public final class Router {
 }
 
 extension Router {
-
-    public func addRoute(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
-		let routeHandler = RouteHandlerWithNoArgs(handler: handler)
+    
+    public func addRoute(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
+        let routeHandler = RouteHandlerWithNoArgs(handler: handler)
         routes += [Route(method: method, path: path, pathTypes: [], middleware: middleware, handler: routeHandler)]
-	}
-
-	public func get(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
-		addRoute(.GET, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func post(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
-		addRoute(.POST, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func put(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
-		addRoute(.PUT, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func delete(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
-		addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func patch(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest) -> Response) {
-		addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
-	}
-	
-}
-
-extension Router {
-
-    public func addRoute<A: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
-		let routeHandler = RouteHandlerWithOneArg(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [A.self], middleware: middleware, handler: routeHandler)]
-	}
-
-	public func get<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
-		addRoute(.GET, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func post<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
-		addRoute(.POST, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func put<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
-		addRoute(.PUT, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func delete<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
-		addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func patch<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A) -> Response) {
-		addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
-	}
+    }
+    
+    public func get(path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
+        addRoute(.GET, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func post(path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
+        addRoute(.POST, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func put(path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
+        addRoute(.PUT, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func delete(path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
+        addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func patch(path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
+        addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
+    }
     
 }
 
 extension Router {
+    
+    public func addRoute<A: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
+        let routeHandler = RouteHandlerWithOneArg(handler: handler)
+        routes += [Route(method: method, path: path, pathTypes: [A.self], middleware: middleware, handler: routeHandler)]
+    }
+    
+    public func get<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
+        addRoute(.GET, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func post<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
+        addRoute(.POST, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func put<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
+        addRoute(.PUT, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func delete<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
+        addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func patch<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
+        addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
+    }
+    
+}
 
-    public func addRoute<A: PathType, B: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
-		let routeHandler = RouteHandlerWithTwoArgs(handler: handler)
+extension Router {
+    
+    public func addRoute<A: PathType, B: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
+        let routeHandler = RouteHandlerWithTwoArgs(handler: handler)
         routes += [Route(method: method, path: path, pathTypes: [A.self, B.self], middleware: middleware, handler: routeHandler)]
-	}
-
-	public func get<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
-		addRoute(.GET, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func post<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
-		addRoute(.POST, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func put<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
-		addRoute(.PUT, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func delete<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
-		addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
-	}
-	
-	public func patch<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (MatchedRequest, A, B) -> Response) {
-		addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
-	}
+    }
+    
+    public func get<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
+        addRoute(.GET, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func post<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
+        addRoute(.POST, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func put<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
+        addRoute(.PUT, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func delete<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
+        addRoute(.DELETE, path: path, middleware: middleware, handler: handler)
+    }
+    
+    public func patch<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
+        addRoute(.PATCH, path: path, middleware: middleware, handler: handler)
+    }
     
 }
