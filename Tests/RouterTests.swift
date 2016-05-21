@@ -72,8 +72,8 @@ class RouterTests: XCTestCase {
 	}
 	
 	func testMiddlewareIsCalled() {
-		let middleware = { (request: MatchedRequest, next: (MatchedRequest) -> Response) -> Response in
-			var response = next(request)
+		let middleware = { (request: Request, next: (Request) throws -> Response) throws -> Response in
+			var response = try next(request)
 			response.headers["X-Powered-By"] = "Switchboard"
 			return response
 		}
