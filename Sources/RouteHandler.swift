@@ -16,42 +16,42 @@ protocol RouteHandlingType {
 
 struct RouteHandlerWithNoArgs: RouteHandlingType {
     
-    private let handler: (MatchedRequest) -> Response
-    init(handler: (MatchedRequest) -> Response) {
+    private let handler: (Request) -> Response
+    init(handler: (Request) -> Response) {
         self.handler = handler
     }
     
     func perform(request: MatchedRequest) -> Response? {
-        return handler(request)
+        return handler(request.request)
     }
     
 }
 
 struct RouteHandlerWithOneArg<A: PathType>: RouteHandlingType {
     
-    private let handler: (MatchedRequest, A) -> Response
-    init(handler: (MatchedRequest, A) -> Response) {
+    private let handler: (Request, A) -> Response
+    init(handler: (Request, A) -> Response) {
         self.handler = handler
     }
     
     func perform(request: MatchedRequest) -> Response? {
         guard let param1: A = request.paramAtIndex(0) else { return nil }
-        return handler(request, param1)
+        return handler(request.request, param1)
     }
     
 }
 
 struct RouteHandlerWithTwoArgs<A: PathType, B: PathType>: RouteHandlingType {
     
-    private let handler: (MatchedRequest, A, B) -> Response
-    init(handler: (MatchedRequest, A, B) -> Response) {
+    private let handler: (Request, A, B) -> Response
+    init(handler: (Request, A, B) -> Response) {
         self.handler = handler
     }
     
     func perform(request: MatchedRequest) -> Response? {
         guard let param1: A = request.paramAtIndex(0),
               let param2: B = request.paramAtIndex(1) else { return nil }
-        return handler(request, param1, param2)
+        return handler(request.request, param1, param2)
     }
     
 }
