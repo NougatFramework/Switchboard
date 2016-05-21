@@ -12,15 +12,15 @@ public struct WildcardPath {
 	
 	public let path: Path
 	public let pathTypes: [PathType.Type]
-	public var wildcards: [String] {
-		return path.components.filter { return $0.hasPrefix(":") }
-	}
+	public let wildcards: [String]
 	
 	public init(path: Path, pathTypes: [PathType.Type]) {
-		// TODO: Validate that there are the same number of wildcards as path types.
-		
+        let wildcards = path.components.filter { $0.hasPrefix(":") }
+        precondition(wildcards.count == pathTypes.count)
+        
 		self.path = path
 		self.pathTypes = pathTypes
+        self.wildcards = wildcards
 	}
 	
 	public func matches(path: Path) -> Bool {
