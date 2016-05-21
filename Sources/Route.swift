@@ -5,14 +5,14 @@ public struct Route {
 	public typealias Middleware = (request: MatchedRequest, next: (MatchedRequest) -> Response) -> Response
 	
 	public let method: Method
-	public let path: WildcardPath
+	public let wildcardPath: WildcardPath
 	public let middleware: [Middleware]
 	
     let handler: RouteHandlingType
 	
 	init(method: Method, path: Path, pathTypes: [PathType.Type] = [], middleware: [Middleware] = [], handler: RouteHandlingType) {
 		self.method = method
-		self.path = WildcardPath(path: path, pathTypes: pathTypes)
+		self.wildcardPath = WildcardPath(path: path, pathTypes: pathTypes)
 		self.middleware = middleware
 		self.handler = handler
 	}
@@ -23,7 +23,7 @@ public struct Route {
 	
 	public func matches(method: Method, path: Path) -> Bool {
 		guard self.method == method else { return false }
-		guard self.path.matches(path) else { return false }
+		guard wildcardPath.matches(path) else { return false }
 		return true
 	}
 	
