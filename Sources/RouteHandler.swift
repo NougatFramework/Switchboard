@@ -10,7 +10,7 @@ import Foundation
 
 protocol RouteHandlingType {
     
-    func perform(request: MatchedRequest) -> Response
+    func perform(request: MatchedRequest) -> Response?
     
 }
 
@@ -21,7 +21,7 @@ struct RouteHandlerWithNoArgs: RouteHandlingType {
         self.handler = handler
     }
     
-    func perform(request: MatchedRequest) -> Response {
+    func perform(request: MatchedRequest) -> Response? {
         return handler(request)
     }
     
@@ -34,8 +34,8 @@ struct RouteHandlerWithOneArg<A: PathType>: RouteHandlingType {
         self.handler = handler
     }
     
-    func perform(request: MatchedRequest) -> Response {
-        let param1: A = request.paramAtIndex(0)
+    func perform(request: MatchedRequest) -> Response? {
+        guard let param1: A = request.paramAtIndex(0) else { return nil }
         return handler(request, param1)
     }
     
@@ -48,9 +48,9 @@ struct RouteHandlerWithTwoArgs<A: PathType, B: PathType>: RouteHandlingType {
         self.handler = handler
     }
     
-    func perform(request: MatchedRequest) -> Response {
-        let param1: A = request.paramAtIndex(0)
-		let param2: B = request.paramAtIndex(1)
+    func perform(request: MatchedRequest) -> Response? {
+        guard let param1: A = request.paramAtIndex(0),
+              let param2: B = request.paramAtIndex(1) else { return nil }
         return handler(request, param1, param2)
     }
     
