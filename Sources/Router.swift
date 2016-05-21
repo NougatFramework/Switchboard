@@ -17,21 +17,27 @@ extension RoutingError: ResponseEncodable {
 }
 
 public final class Router {
-
-	// TODO: experiment with setting this up as a tree, instead of an array?
-	public private(set) var routes: [Route] = []
-	public var globalMiddleware: [Route.Middleware] = []
-
-	public func route(request: Request) throws -> Response {
-		for route in routes {
-			if route.matches(request) {
-				 return route.handle(request)
-			}
-		}
-		
-		throw RoutingError.NotFound(request.method, request.path)
-	}
-
+    
+    // TODO: experiment with setting this up as a tree, instead of an array?
+    public private(set) var routes: [Route] = []
+    public var globalMiddleware: [Route.Middleware] = []
+    
+    public func route(request: Request) throws -> Response {
+        for route in routes where route.matches(request) {
+            do {
+                return try route.handle(request)
+            }
+            catch let responseEncodableError as ResponseEncodable {
+                return responseEncodableError.asResponse()
+            }
+            catch {
+                return Response(error: error)
+            }
+        }
+        
+        throw RoutingError.NotFound(request.method, request.path)
+    }
+    
 }
 
 extension Router {
