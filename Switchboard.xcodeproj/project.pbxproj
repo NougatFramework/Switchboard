@@ -50,6 +50,7 @@
 		C3A8563C1C4D50320065E156 /* WildcardPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardPath.swift; sourceTree = "<group>"; };
 		C3A8563E1C4D52EC0065E156 /* PathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathTests.swift; sourceTree = "<group>"; };
 		C3A856401C4D9F840065E156 /* WildcardPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardPathTests.swift; sourceTree = "<group>"; };
+		C3EC44E81CECABAF00413649 /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		C3EC44EE1CEE57B100413649 /* PathType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +78,7 @@
 			children = (
 				C39A9E851C3F5AA00092B90C /* Switchboard */,
 				C39A9E911C3F5AA00092B90C /* SwitchboardTests */,
+				C3EC44E71CECAB8C00413649 /* Generator */,
 				C39A9E841C3F5AA00092B90C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +121,14 @@
 			);
 			name = SwitchboardTests;
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		C3EC44E71CECAB8C00413649 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC44E81CECABAF00413649 /* Generator.swift */,
+			);
+			path = Generator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
