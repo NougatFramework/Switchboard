@@ -84,14 +84,14 @@ func generateHandlerStruct(handler: HandlerType) -> String {
 func generateRouterExtension(handler: HandlerType) -> String {
     var routerExtension =
         "extension Router {\n\n" +
-        "    private func addRoute\(handler.genericsClause)(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: \(handler.handlerSignature) {\n" +
+        "    private func addRoute\(handler.genericsClause)(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: \(handler.handlerSignature)) {\n" +
         "        let routeHandler = RouteHandlerWithTwoArgs(handler: handler)\n" +
         "        routes += [Route(method: method, path: path, pathTypes: [\(handler.pathTypes)], middleware: middleware, handler: routeHandler)]\n" +
         "    }\n\n"
 
     ["GET", "POST", "PUT", "DELETE", "PATCH"].forEach { (method) in
         routerExtension +=
-        "    public func \(method.lowercaseString)\(handler.genericsClause)(path: Path, middleware: [Route.Middleware] = [], handler: \(handler.handlerSignature) {\n" +
+        "    public func \(method.lowercaseString)\(handler.genericsClause)(path: Path, middleware: [Route.Middleware] = [], handler: \(handler.handlerSignature)) {\n" +
         "        addRoute(.\(method), path: path, middleware: middleware, handler: handler)\n" +
         "    }\n\n"
     }
