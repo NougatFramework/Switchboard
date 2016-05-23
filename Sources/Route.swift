@@ -1,5 +1,11 @@
 
 
+protocol RouteHandlingType {
+    
+    func perform(request: MatchedRequest) -> Response?
+    
+}
+
 public struct Route {
 
 	public typealias Middleware = (request: Request, next: (Request) throws -> Response) throws -> Response
