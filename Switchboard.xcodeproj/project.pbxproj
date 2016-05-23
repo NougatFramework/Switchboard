@@ -155,6 +155,7 @@
 				C39A9E7F1C3F5AA00092B90C /* Frameworks */,
 				C39A9E801C3F5AA00092B90C /* Headers */,
 				C39A9E811C3F5AA00092B90C /* Resources */,
+				C32BC7911CF2955500B479DE /* Run Generator */,
 			);
 			buildRules = (
 			);
@@ -235,6 +236,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C32BC7911CF2955500B479DE /* Run Generator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Generator";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${SRCROOT}/Generator\"\n./Generator.swift";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C39A9E7E1C3F5AA00092B90C /* Sources */ = {
