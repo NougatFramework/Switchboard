@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32BC78E1CF28EDF00B479DE /* RouterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BC78D1CF28EDF00B479DE /* RouterExtensions.swift */; };
 		C32BC7901CF28FD200B479DE /* RouteHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BC78F1CF28FD200B479DE /* RouteHandlers.swift */; };
 		C353DDCE1CF0CDE500203F6E /* MatchedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353DDCD1CF0CDE500203F6E /* MatchedRequest.swift */; };
 		C362006F1C40732600CE0AA4 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362006E1C40732600CE0AA4 /* RouterTests.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C32BC78D1CF28EDF00B479DE /* RouterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterExtensions.swift; sourceTree = "<group>"; };
 		C32BC78F1CF28FD200B479DE /* RouteHandlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteHandlers.swift; sourceTree = "<group>"; };
 		C353DDCD1CF0CDE500203F6E /* MatchedRequest.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = MatchedRequest.swift; sourceTree = "<group>"; };
 		C362006E1C40732600CE0AA4 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				C374CB641C4001FA00F0BB97 /* Route.swift */,
 				C32BC78F1CF28FD200B479DE /* RouteHandlers.swift */,
 				C374CB651C4001FA00F0BB97 /* Router.swift */,
+				C32BC78D1CF28EDF00B479DE /* RouterExtensions.swift */,
 				C374CB661C4001FA00F0BB97 /* StatusCode.swift */,
 				C3A8563C1C4D50320065E156 /* WildcardPath.swift */,
 				C39A9E881C3F5AA00092B90C /* Info.plist */,
@@ -246,6 +249,7 @@
 				C374CB691C4001FA00F0BB97 /* Request.swift in Sources */,
 				C3A8563D1C4D50320065E156 /* WildcardPath.swift in Sources */,
 				C374CB6B1C4001FA00F0BB97 /* Route.swift in Sources */,
+				C32BC78E1CF28EDF00B479DE /* RouterExtensions.swift in Sources */,
 				C32BC7901CF28FD200B479DE /* RouteHandlers.swift in Sources */,
 				C374CB6C1C4001FA00F0BB97 /* Router.swift in Sources */,
 			);
