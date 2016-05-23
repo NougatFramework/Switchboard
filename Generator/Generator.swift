@@ -10,38 +10,42 @@
 
 import Foundation
 
-let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+let numberFormatter = NSNumberFormatter()
+numberFormatter.numberStyle = .SpellOutStyle
 
-@available(OSX 10.10, *)
-func generateRouteHandlers(count: Int = 6) -> (generatedCode: String, types: [String]) {
-	var types: [String] = []
-	var generatedCode: [String] = []
-	
-	let numberFormatter = NSNumberFormatter()
-	numberFormatter.numberStyle = .SpellOutStyle
+if #available(OSX 10.10, *) {
     numberFormatter.formattingContext = .Standalone
-	
-	var generics: [String] = []
-	var handlerTypes = ["Request"]
-	
-	for argCount in 0...count {
-		if argCount != 0 {
-            let letter = letters[argCount - 1]
-			generics += [letter]
-			handlerTypes += [letter]
-		}
+}
+
+struct HandlerType {
+    
+    let paramCount: Int
+    
+    var typeName: String {
+        let paramString = paramCount == 1 ? "Arg" : "Args"
+		let numberString = numberFormatter.stringFromNumber(paramCount)!
 		
-		let argString = argCount == 1 ? "Arg" : "Args"
-		let numberString = numberFormatter.stringFromNumber(argCount)!
-		
-		let typeName = "RouteHandlerWith\(numberString)\(argString)"
-		types += [typeName]
-		
-		let handlerSignature = "(\(handlerTypes.joinWithSeparator(", "))) -> Response"
-		let genericsList = generics.map { return $0 + ": PathType" }.joinWithSeparator(", ")
+		return "RouteHandlerWith\(numberString)\(paramString)"
+    }
+    
+    var genericTypes: [String] {
+        return (0..<paramCount).map { String(UnicodeScalar($0 + 65)) }
+    }
+    
+    var handlerTypes: [String] {
+        return ["Request"] + genericTypes
+    }
+    
+    init(paramCount: Int) {
+        self.paramCount = paramCount
+    }
+    
+    func generateHandler() -> String {
+        let handlerSignature = "(\(handlerTypes.joinWithSeparator(", "))) -> Response"
+		let genericsList = genericTypes.map { return $0 + ": PathType" }.joinWithSeparator(", ")
         let genericsClause = genericsList.isEmpty ? "" : "<" + genericsList + ">"
         
-		var handlerStruct =
+        var handlerStruct =
 			"struct \(typeName)\(genericsClause): RouteHandlingType {\n\n" +
 			"    private let handler: \(handlerSignature)\n" +
             "    init(handler: \(handlerSignature)) {\n" +
@@ -51,7 +55,7 @@ func generateRouteHandlers(count: Int = 6) -> (generatedCode: String, types: [St
         
         var handlerParams = ["request"]
         
-        for (i, generic) in generics.enumerate() {
+        for (i, generic) in genericTypes.enumerate() {
             let paramName = "param\(i + 1)"
             
             handlerStruct += "        let \(paramName): \(generic) = request.paramAtIndex(\(i))\n"
@@ -64,17 +68,15 @@ func generateRouteHandlers(count: Int = 6) -> (generatedCode: String, types: [St
             "    }\n\n" +
             "}"
         
-        generatedCode += [handlerStruct]
-	}
-	
-	return (generatedCode: generatedCode.joinWithSeparator("\n\n"), types: types)
+        return handlerStruct
+    }
+    
 }
 
-if #available(OSX 10.10, *) {
-    let (generatedCode, types) = generateRouteHandlers()
-    print("\(generatedCode)")
+func generateRouteHandlers(count: Int = 6) -> (generatedCode: String, types: [HandlerType]) {
+	let handlerTypes: [HandlerType] = (0...count).map { HandlerType(paramCount: $0) }
+    return (generatedCode: handlerTypes.map { $0.generateHandler() }.joinWithSeparator("\n\n"), types: handlerTypes)
 }
-else {
-    print("OS X 10.10 is required to run the generator.")
-    exit(EXIT_FAILURE)
-}
+
+let (generatedCode, types) = generateRouteHandlers()
+print("\(generatedCode)")
