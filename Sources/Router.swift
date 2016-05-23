@@ -19,7 +19,7 @@ extension RoutingError: ResponseEncodable {
 public final class Router {
     
     // TODO: experiment with setting this up as a tree, instead of an array?
-    public private(set) var routes: [Route] = []
+    public internal(set) var routes: [Route] = []
     public var globalMiddleware: [Route.Middleware] = []
     
     public func route(request: Request) throws -> Response {
