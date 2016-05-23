@@ -55,11 +55,10 @@ struct HandlerType {
         
         var handlerParams = ["request"]
         
-        for (i, generic) in genericTypes.enumerate() {
+        genericTypes.enumerate().forEach { (i, generic) in
             let paramName = "param\(i + 1)"
             
             handlerStruct += "        let \(paramName): \(generic) = request.paramAtIndex(\(i))\n"
-            
             handlerParams += [paramName]
         }
         
