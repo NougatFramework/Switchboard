@@ -62,14 +62,14 @@ func generateHandlerStruct(handler: HandlerType) -> String {
         "    init(handler: \(handler.handlerSignature)) {\n" +
         "        self.handler = handler\n" +
         "    }\n\n" +
-        "    func perform(request: MatchedRequest) -> Response {\n"
+        "    func perform(matchedRequest: MatchedRequest) -> Response? {\n"
     
-    var handlerParams = ["request"]
+    var handlerParams = ["matchedRequest.request"]
     
     handler.genericTypes.enumerate().forEach { (i, generic) in
         let paramName = "param\(i + 1)"
         
-        handlerStruct += "        let \(paramName): \(generic) = request.paramAtIndex(\(i))\n"
+        handlerStruct += "        guard let \(paramName): \(generic) = matchedRequest.paramAtIndex(\(i)) else { return nil }\n"
         handlerParams += [paramName]
     }
     
