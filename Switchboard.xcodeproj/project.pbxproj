@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C32BC78E1CF28EDF00B479DE /* RouterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BC78D1CF28EDF00B479DE /* RouterExtensions.swift */; };
 		C32BC7901CF28FD200B479DE /* RouteHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BC78F1CF28FD200B479DE /* RouteHandlers.swift */; };
+		C32BC7931CF33DB300B479DE /* PathTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BC7921CF33DB300B479DE /* PathTypeTests.swift */; };
 		C353DDCE1CF0CDE500203F6E /* MatchedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353DDCD1CF0CDE500203F6E /* MatchedRequest.swift */; };
 		C362006F1C40732600CE0AA4 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362006E1C40732600CE0AA4 /* RouterTests.swift */; };
 		C374CB681C4001FA00F0BB97 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374CB611C4001FA00F0BB97 /* Path.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		C32BC78D1CF28EDF00B479DE /* RouterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterExtensions.swift; sourceTree = "<group>"; };
 		C32BC78F1CF28FD200B479DE /* RouteHandlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteHandlers.swift; sourceTree = "<group>"; };
+		C32BC7921CF33DB300B479DE /* PathTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathTypeTests.swift; sourceTree = "<group>"; };
 		C353DDCD1CF0CDE500203F6E /* MatchedRequest.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = MatchedRequest.swift; sourceTree = "<group>"; };
 		C362006E1C40732600CE0AA4 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		C374CB611C4001FA00F0BB97 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				C3A8563E1C4D52EC0065E156 /* PathTests.swift */,
 				C362006E1C40732600CE0AA4 /* RouterTests.swift */,
 				C3A856401C4D9F840065E156 /* WildcardPathTests.swift */,
+				C32BC7921CF33DB300B479DE /* PathTypeTests.swift */,
 			);
 			name = SwitchboardTests;
 			path = Tests;
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32BC7931CF33DB300B479DE /* PathTypeTests.swift in Sources */,
 				C3A8563F1C4D52EC0065E156 /* PathTests.swift in Sources */,
 				C3A856411C4D9F840065E156 /* WildcardPathTests.swift in Sources */,
 				C362006F1C40732600CE0AA4 /* RouterTests.swift in Sources */,
