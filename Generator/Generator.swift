@@ -85,7 +85,7 @@ func generateRouterExtension(handler: HandlerType) -> String {
     var routerExtension =
         "extension Router {\n\n" +
         "    private func addRoute\(handler.genericsClause)(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: \(handler.handlerSignature)) {\n" +
-        "        let routeHandler = RouteHandlerWithTwoArgs(handler: handler)\n" +
+        "        let routeHandler = \(handler.typeName)(handler: handler)\n" +
         "        routes += [Route(method: method, path: path, pathTypes: [\(handler.pathTypes)], middleware: middleware, handler: routeHandler)]\n" +
         "    }\n\n"
 
