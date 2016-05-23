@@ -29,3 +29,11 @@ extension String: PathType {
 	}
 
 }
+
+extension NSUUID: PathType {
+    
+    public static func fromString(string: String) -> Self? {
+        return self.init(UUIDString: string)
+    }
+    
+}
