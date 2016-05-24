@@ -154,11 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C39A9E971C3F5AA00092B90C /* Build configuration list for PBXNativeTarget "Switchboard" */;
 			buildPhases = (
+				C32BC7911CF2955500B479DE /* Run Generator */,
 				C39A9E7E1C3F5AA00092B90C /* Sources */,
 				C39A9E7F1C3F5AA00092B90C /* Frameworks */,
 				C39A9E801C3F5AA00092B90C /* Headers */,
 				C39A9E811C3F5AA00092B90C /* Resources */,
-				C32BC7911CF2955500B479DE /* Run Generator */,
 			);
 			buildRules = (
 			);
