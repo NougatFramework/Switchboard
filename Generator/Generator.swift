@@ -86,7 +86,8 @@ func generateRouterExtension(handler: HandlerType) -> String {
         "extension Router {\n\n" +
         "    private func addRoute\(handler.genericsClause)(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: \(handler.handlerSignature)) {\n" +
         "        let routeHandler = \(handler.typeName)(handler: handler)\n" +
-        "        routes += [Route(method: method, path: path, pathTypes: [\(handler.pathTypes)], middleware: middleware, handler: routeHandler)]\n" +
+        "        let wildcardPath = WildcardPath(path: path, pathTypes: [\(handler.pathTypes)])\n" +
+        "        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]\n" +
         "    }\n\n"
 
     ["GET", "POST", "PUT", "DELETE", "PATCH"].forEach { (method) in

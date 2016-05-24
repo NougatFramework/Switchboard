@@ -16,9 +16,9 @@ public struct Route {
 	
     let handler: RouteHandlingType
 	
-	init(method: Method, path: Path, pathTypes: [PathType.Type] = [], middleware: [Middleware] = [], handler: RouteHandlingType) {
+	init(method: Method, wildcardPath: WildcardPath, middleware: [Middleware] = [], handler: RouteHandlingType) {
 		self.method = method
-		self.wildcardPath = WildcardPath(path: path, pathTypes: pathTypes)
+		self.wildcardPath = wildcardPath
 		self.middleware = middleware
 		self.handler = handler
 	}

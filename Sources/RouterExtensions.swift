@@ -2,7 +2,8 @@ extension Router {
 
     private func addRoute(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
         let routeHandler = RouteHandlerWithZeroArgs(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [], middleware: middleware, handler: routeHandler)]
+        let wildcardPath = WildcardPath(path: path, pathTypes: [])
+        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]
     }
 
     public func get(path: Path, middleware: [Route.Middleware] = [], handler: (Request) -> Response) {
@@ -31,7 +32,8 @@ extension Router {
 
     private func addRoute<A: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
         let routeHandler = RouteHandlerWithOneArg(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [A.self], middleware: middleware, handler: routeHandler)]
+        let wildcardPath = WildcardPath(path: path, pathTypes: [A.self])
+        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]
     }
 
     public func get<A: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A) -> Response) {
@@ -60,7 +62,8 @@ extension Router {
 
     private func addRoute<A: PathType, B: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
         let routeHandler = RouteHandlerWithTwoArgs(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [A.self, B.self], middleware: middleware, handler: routeHandler)]
+        let wildcardPath = WildcardPath(path: path, pathTypes: [A.self, B.self])
+        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]
     }
 
     public func get<A: PathType, B: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B) -> Response) {
@@ -89,7 +92,8 @@ extension Router {
 
     private func addRoute<A: PathType, B: PathType, C: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C) -> Response) {
         let routeHandler = RouteHandlerWithThreeArgs(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [A.self, B.self, C.self], middleware: middleware, handler: routeHandler)]
+        let wildcardPath = WildcardPath(path: path, pathTypes: [A.self, B.self, C.self])
+        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]
     }
 
     public func get<A: PathType, B: PathType, C: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C) -> Response) {
@@ -118,7 +122,8 @@ extension Router {
 
     private func addRoute<A: PathType, B: PathType, C: PathType, D: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C, D) -> Response) {
         let routeHandler = RouteHandlerWithFourArgs(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [A.self, B.self, C.self, D.self], middleware: middleware, handler: routeHandler)]
+        let wildcardPath = WildcardPath(path: path, pathTypes: [A.self, B.self, C.self, D.self])
+        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]
     }
 
     public func get<A: PathType, B: PathType, C: PathType, D: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C, D) -> Response) {
@@ -147,7 +152,8 @@ extension Router {
 
     private func addRoute<A: PathType, B: PathType, C: PathType, D: PathType, E: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C, D, E) -> Response) {
         let routeHandler = RouteHandlerWithFiveArgs(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [A.self, B.self, C.self, D.self, E.self], middleware: middleware, handler: routeHandler)]
+        let wildcardPath = WildcardPath(path: path, pathTypes: [A.self, B.self, C.self, D.self, E.self])
+        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]
     }
 
     public func get<A: PathType, B: PathType, C: PathType, D: PathType, E: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C, D, E) -> Response) {
@@ -176,7 +182,8 @@ extension Router {
 
     private func addRoute<A: PathType, B: PathType, C: PathType, D: PathType, E: PathType, F: PathType>(method: Method, path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C, D, E, F) -> Response) {
         let routeHandler = RouteHandlerWithSixArgs(handler: handler)
-        routes += [Route(method: method, path: path, pathTypes: [A.self, B.self, C.self, D.self, E.self, F.self], middleware: middleware, handler: routeHandler)]
+        let wildcardPath = WildcardPath(path: path, pathTypes: [A.self, B.self, C.self, D.self, E.self, F.self])
+        routes += [Route(method: method, wildcardPath: wildcardPath, middleware: middleware, handler: routeHandler)]
     }
 
     public func get<A: PathType, B: PathType, C: PathType, D: PathType, E: PathType, F: PathType>(path: Path, middleware: [Route.Middleware] = [], handler: (Request, A, B, C, D, E, F) -> Response) {
