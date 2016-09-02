@@ -36,10 +36,10 @@ class PathTypeTests: XCTestCase {
     }
     
     func testUUIDPathType() {
-        let UUIDResult = NSUUID.fromString("9527E82F-873D-465B-9269-3107DACC2922")
-        XCTAssertEqual(UUIDResult, NSUUID(UUIDString: "9527E82F-873D-465B-9269-3107DACC2922"))
+        let UUIDResult = UUID.fromString("9527E82F-873D-465B-9269-3107DACC2922")
+        XCTAssertEqual(UUIDResult, UUID(uuidString: "9527E82F-873D-465B-9269-3107DACC2922"))
         
-        let stringResult = NSUUID.fromString("my-awesome-post")
+        let stringResult = UUID.fromString("my-awesome-post")
         XCTAssertNil(stringResult)
     }
 

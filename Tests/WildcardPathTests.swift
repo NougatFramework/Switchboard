@@ -50,16 +50,16 @@ class WildcardPathTests: XCTestCase {
 	func testWildcardPathMatches() {
 		let pathToMatch = Path(stringLiteral: "/user/1234")
 		let wildcardPath = WildcardPath(path: "/user/:user_id", pathTypes: [Int.self])
-		XCTAssertTrue(wildcardPath.matches(pathToMatch))
+		XCTAssertTrue(wildcardPath.matches(path: pathToMatch))
 		
 		let invalidPath = Path(stringLiteral: "/user/grantjbutler")
-		XCTAssertFalse(wildcardPath.matches(invalidPath))
+		XCTAssertFalse(wildcardPath.matches(path: invalidPath))
 		
 		let nonMatchingPath = Path(stringLiteral: "/post/this-is-a-post")
-		XCTAssertFalse(wildcardPath.matches(nonMatchingPath))
+		XCTAssertFalse(wildcardPath.matches(path: nonMatchingPath))
 		
 		let longerPath = Path(stringLiteral: "/user/1234/comments")
-		XCTAssertFalse(wildcardPath.matches(longerPath))
+		XCTAssertFalse(wildcardPath.matches(path: longerPath))
 	}
 
 }

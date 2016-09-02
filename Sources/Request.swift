@@ -19,7 +19,7 @@ public struct Request {
 	public let headers: [(String, String)]
 	public let body: String? // FIXME: Data instead?
 	public let query: [String: String]
-	
+
 	init(method: Method, path: Path, headers: [(String, String)] = [], query: [String: String] = [:], body: String? = nil) {
 		self.method = method
 		self.path = path
@@ -27,5 +27,5 @@ public struct Request {
 		self.query = query
 		self.body = body
 	}
-	
+
 }

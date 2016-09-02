@@ -28,7 +28,7 @@ public struct WildcardPath {
         
 		for (selfPathComponent, otherPathComponent) in zip(self.path.components, path.components) {
 			if selfPathComponent.hasPrefix(":") {
-				guard let wildcardIndex = wildcards.indexOf(selfPathComponent) else { return false }
+				guard let wildcardIndex = wildcards.index(of: selfPathComponent) else { return false }
 				
 				let pathType = pathTypes[wildcardIndex]
 				guard pathType.fromString(otherPathComponent) != nil else { return false }
@@ -41,9 +41,9 @@ public struct WildcardPath {
 		return true
 	}
 	
-	public func indexOfWildcard(wildcard: String) -> Int? {
+	public func indexOf(wildcard: String) -> Int? {
 		guard wildcard.hasPrefix(":") else { return nil }
-		return path.components.indexOf(wildcard)
+		return path.components.index(of: wildcard)
 	}
 	
 }

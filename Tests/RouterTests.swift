@@ -25,10 +25,10 @@ class RouterTests: XCTestCase {
 		let router = Router()
 		
 		do {
-			try router.route(Request(method: .GET, path: "/"))
+			_ = try router.route(Request(method: .GET, path: "/"))
 			XCTFail("Request was routed.")
 		}
-		catch RoutingError.NotFound(_, _) {
+		catch RoutingError.notFound(_, _) {
 			// Pass
 		}
 		catch {
@@ -40,12 +40,12 @@ class RouterTests: XCTestCase {
 		let router = Router()
 		
 		router.get("/") { (request) -> Response in
-			return Response(statusCode: .OK, headers: [:], body: "")
+			return Response(statusCode: .ok, headers: [:], body: "")
 		}
 		
 		do {
 			let response = try router.route(Request(method: .GET, path: "/"))
-			XCTAssertEqual(response, Response(statusCode: .OK, headers: [:], body: ""))
+			XCTAssertEqual(response, Response(statusCode: .ok, headers: [:], body: ""))
 		}
 		catch {
 			XCTFail("An unknown error was caught.")
@@ -56,14 +56,14 @@ class RouterTests: XCTestCase {
 		let router = Router()
 		
 		router.get("/") { (request) -> Response in
-			return Response(statusCode: .OK, headers: [:], body: "")
+			return Response(statusCode: .ok, headers: [:], body: "")
 		}
 		
 		do {
-			try router.route(Request(method: .POST, path: "/"))
+			_ = try router.route(Request(method: .POST, path: "/"))
 			XCTFail("Request was routed.")
 		}
-		catch RoutingError.NotFound(_, _) {
+		catch RoutingError.notFound(_, _) {
 			// Pass
 		}
 		catch {
@@ -80,12 +80,12 @@ class RouterTests: XCTestCase {
 		let router = Router()
 		
 		router.get("/", middleware: [middleware]) { (request) -> Response in
-			return Response(statusCode: .OK, headers: [:], body: "")
+			return Response(statusCode: .ok, headers: [:], body: "")
 		}
 		
 		do {
 			let response = try router.route(Request(method: .GET, path: "/"))
-			XCTAssertEqual(response, Response(statusCode: .OK, headers: ["X-Powered-By":"Switchboard"], body: ""))
+			XCTAssertEqual(response, Response(statusCode: .ok, headers: ["X-Powered-By":"Switchboard"], body: ""))
 		}
 		catch {
 			XCTFail("An unknown error was caught.")
@@ -96,22 +96,22 @@ class RouterTests: XCTestCase {
 		let router = Router()
 		
 		router.get("/posts/:post_id") { (request, postID: Int) -> Response in
-			return Response(statusCode: .OK, headers: [:], body: "Post \(postID)")
+			return Response(statusCode: .ok, headers: [:], body: "Post \(postID)")
 		}
 		
 		do {
 			let response = try router.route(Request(method: .GET, path: "/posts/123"))
-			XCTAssertEqual(response, Response(statusCode: .OK, headers: [:], body: "Post 123"))
+			XCTAssertEqual(response, Response(statusCode: .ok, headers: [:], body: "Post 123"))
 		}
 		catch {
 			XCTFail("An unknown error was caught.")
 		}
 		
 		do {
-			try router.route(Request(method: .GET, path: "/posts/some-slug"))
+			_ = try router.route(Request(method: .GET, path: "/posts/some-slug"))
 			XCTFail("Request was routed.")
 		}
-		catch RoutingError.NotFound(_, _) {
+		catch RoutingError.notFound(_, _) {
 			// Pass
 		}
 		catch {

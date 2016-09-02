@@ -1,41 +1,52 @@
 public enum RoutingError {
-	
-	case NotFound(Method, Path)
-	
+
+	case notFound(Method, Path)
+
 }
 
-extension RoutingError: ErrorType {}
+extension RoutingError: Error {}
 extension RoutingError: ResponseEncodable {
-	
+
 	public func asResponse() -> Response {
 		switch self {
-			case let .NotFound(method, path):
-				return Response.html("<h1><pre>Could not \(method) \(path)</pre></h1>", statusCode: .NotFound)
+			case let .notFound(method, path):
+				return Response.html("<h1><pre>Could not \(method) \(path)</pre></h1>", statusCode: .notFound)
 		}
 	}
-	
+
 }
 
 public final class Router {
-    
+
     // TODO: experiment with setting this up as a tree, instead of an array?
     public internal(set) var routes: [Route] = []
     public var globalMiddleware: [Route.Middleware] = []
-    
-    public func route(request: Request) throws -> Response {
+
+    public func route(_ request: Request) throws -> Response {
         for route in routes where route.matches(request) {
-            do {
-                return try route.handle(request)
-            }
-            catch let responseEncodableError as ResponseEncodable {
-                return responseEncodableError.asResponse()
-            }
-            catch {
-                return Response(error: error)
-            }
+            return try handle(route, request: request, middlewareGenerator: globalMiddleware.makeIterator())
         }
-        
-        throw RoutingError.NotFound(request.method, request.path)
+
+        throw RoutingError.notFound(request.method, request.path)
     }
-    
+
+    fileprivate func handle(_ route: Route, request: Request, middlewareGenerator: IndexingIterator<[Route.Middleware]>) throws -> Response {
+		var mutableMiddlewareGenerator = middlewareGenerator
+		if let middleware = mutableMiddlewareGenerator.next() {
+			return try middleware(request, { (aRequest) -> Response in
+				return try self.handle(route, request: aRequest, middlewareGenerator: mutableMiddlewareGenerator)
+			})
+		}
+
+        do {
+            return try route.handle(request)
+        }
+        catch let responseEncodableError as ResponseEncodable {
+            return responseEncodableError.asResponse()
+        }
+        catch {
+            return Response(error: error)
+        }
+	}
+
 }

@@ -1,11 +1,11 @@
 struct RouteHandlerWithZeroArgs: RouteHandlingType {
 
     private let handler: (Request) -> Response
-    init(handler: (Request) -> Response) {
+    init(handler: @escaping (Request) -> Response) {
         self.handler = handler
     }
 
-    func perform(matchedRequest: MatchedRequest) -> Response? {
+    func perform(_ matchedRequest: MatchedRequest) -> Response? {
         return handler(matchedRequest.request)
     }
 
@@ -14,11 +14,11 @@ struct RouteHandlerWithZeroArgs: RouteHandlingType {
 struct RouteHandlerWithOneArg<A: PathType>: RouteHandlingType {
 
     private let handler: (Request, A) -> Response
-    init(handler: (Request, A) -> Response) {
+    init(handler: @escaping (Request, A) -> Response) {
         self.handler = handler
     }
 
-    func perform(matchedRequest: MatchedRequest) -> Response? {
+    func perform(_ matchedRequest: MatchedRequest) -> Response? {
         guard let param1: A = matchedRequest.paramAtIndex(0) else { return nil }
         return handler(matchedRequest.request, param1)
     }
@@ -28,11 +28,11 @@ struct RouteHandlerWithOneArg<A: PathType>: RouteHandlingType {
 struct RouteHandlerWithTwoArgs<A: PathType, B: PathType>: RouteHandlingType {
 
     private let handler: (Request, A, B) -> Response
-    init(handler: (Request, A, B) -> Response) {
+    init(handler: @escaping (Request, A, B) -> Response) {
         self.handler = handler
     }
 
-    func perform(matchedRequest: MatchedRequest) -> Response? {
+    func perform(_ matchedRequest: MatchedRequest) -> Response? {
         guard let param1: A = matchedRequest.paramAtIndex(0) else { return nil }
         guard let param2: B = matchedRequest.paramAtIndex(1) else { return nil }
         return handler(matchedRequest.request, param1, param2)
@@ -43,11 +43,11 @@ struct RouteHandlerWithTwoArgs<A: PathType, B: PathType>: RouteHandlingType {
 struct RouteHandlerWithThreeArgs<A: PathType, B: PathType, C: PathType>: RouteHandlingType {
 
     private let handler: (Request, A, B, C) -> Response
-    init(handler: (Request, A, B, C) -> Response) {
+    init(handler: @escaping (Request, A, B, C) -> Response) {
         self.handler = handler
     }
 
-    func perform(matchedRequest: MatchedRequest) -> Response? {
+    func perform(_ matchedRequest: MatchedRequest) -> Response? {
         guard let param1: A = matchedRequest.paramAtIndex(0) else { return nil }
         guard let param2: B = matchedRequest.paramAtIndex(1) else { return nil }
         guard let param3: C = matchedRequest.paramAtIndex(2) else { return nil }
@@ -59,11 +59,11 @@ struct RouteHandlerWithThreeArgs<A: PathType, B: PathType, C: PathType>: RouteHa
 struct RouteHandlerWithFourArgs<A: PathType, B: PathType, C: PathType, D: PathType>: RouteHandlingType {
 
     private let handler: (Request, A, B, C, D) -> Response
-    init(handler: (Request, A, B, C, D) -> Response) {
+    init(handler: @escaping (Request, A, B, C, D) -> Response) {
         self.handler = handler
     }
 
-    func perform(matchedRequest: MatchedRequest) -> Response? {
+    func perform(_ matchedRequest: MatchedRequest) -> Response? {
         guard let param1: A = matchedRequest.paramAtIndex(0) else { return nil }
         guard let param2: B = matchedRequest.paramAtIndex(1) else { return nil }
         guard let param3: C = matchedRequest.paramAtIndex(2) else { return nil }
@@ -76,11 +76,11 @@ struct RouteHandlerWithFourArgs<A: PathType, B: PathType, C: PathType, D: PathTy
 struct RouteHandlerWithFiveArgs<A: PathType, B: PathType, C: PathType, D: PathType, E: PathType>: RouteHandlingType {
 
     private let handler: (Request, A, B, C, D, E) -> Response
-    init(handler: (Request, A, B, C, D, E) -> Response) {
+    init(handler: @escaping (Request, A, B, C, D, E) -> Response) {
         self.handler = handler
     }
 
-    func perform(matchedRequest: MatchedRequest) -> Response? {
+    func perform(_ matchedRequest: MatchedRequest) -> Response? {
         guard let param1: A = matchedRequest.paramAtIndex(0) else { return nil }
         guard let param2: B = matchedRequest.paramAtIndex(1) else { return nil }
         guard let param3: C = matchedRequest.paramAtIndex(2) else { return nil }
@@ -94,11 +94,11 @@ struct RouteHandlerWithFiveArgs<A: PathType, B: PathType, C: PathType, D: PathTy
 struct RouteHandlerWithSixArgs<A: PathType, B: PathType, C: PathType, D: PathType, E: PathType, F: PathType>: RouteHandlingType {
 
     private let handler: (Request, A, B, C, D, E, F) -> Response
-    init(handler: (Request, A, B, C, D, E, F) -> Response) {
+    init(handler: @escaping (Request, A, B, C, D, E, F) -> Response) {
         self.handler = handler
     }
 
-    func perform(matchedRequest: MatchedRequest) -> Response? {
+    func perform(_ matchedRequest: MatchedRequest) -> Response? {
         guard let param1: A = matchedRequest.paramAtIndex(0) else { return nil }
         guard let param2: B = matchedRequest.paramAtIndex(1) else { return nil }
         guard let param3: C = matchedRequest.paramAtIndex(2) else { return nil }

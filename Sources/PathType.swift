@@ -10,13 +10,13 @@ import Foundation
 
 public protocol PathType {
 
-	static func fromString(string: String) -> Self?
+	static func fromString(_ string: String) -> Self?
 
 }
 
 extension Int: PathType {
 
-	public static func fromString(string: String) -> Int? {
+	public static func fromString(_ string: String) -> Int? {
 		return Int(string)
 	}
 
@@ -24,16 +24,16 @@ extension Int: PathType {
 
 extension String: PathType {
 
-	public static func fromString(string: String) -> String? {
+	public static func fromString(_ string: String) -> String? {
 		return String(string)
 	}
 
 }
 
-extension NSUUID: PathType {
-    
-    public static func fromString(string: String) -> Self? {
-        return self.init(UUIDString: string)
+extension UUID: PathType {
+
+    public static func fromString(_ string: String) -> UUID? {
+        return self.init(uuidString: string)
     }
-    
+
 }

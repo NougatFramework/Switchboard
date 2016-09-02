@@ -3,7 +3,7 @@ import Foundation
 public struct Path {
 
 	public let components: [String]
-	
+
 }
 
 extension Path: Equatable { }
@@ -13,18 +13,18 @@ public func ==(lhs: Path, rhs: Path) -> Bool {
 	return lhs.components == rhs.components
 }
 
-extension Path: StringLiteralConvertible {
-	
+extension Path: ExpressibleByStringLiteral {
+
 	public init(extendedGraphemeClusterLiteral value: String) {
 		// TODO: Remove dependency on Foundation?
 		components = (value as NSString).pathComponents
 	}
-	
+
 	public init(stringLiteral value: String) {
 		// TODO: Remove dependency on Foundation?
 		components = (value as NSString).pathComponents
 	}
-	
+
 	public init(unicodeScalarLiteral value: String) {
 		// TODO: Remove dependency on Foundation?
 		components = (value as NSString).pathComponents
@@ -33,9 +33,9 @@ extension Path: StringLiteralConvertible {
 }
 
 extension Path: CustomStringConvertible {
-    
+
     public var description: String {
-        return components.joinWithSeparator("/")
+        return components.joined(separator: "/")
     }
-    
+
 }

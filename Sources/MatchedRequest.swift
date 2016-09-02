@@ -7,22 +7,22 @@
 //
 
 struct MatchedRequest {
-	
+
 	let request: Request
 	let route: Route
-	
-    func paramAtIndex<T: PathType>(index: Int) -> T? {
-        let wildcardKey = route.wildcardPath.wildcards[index]
-        return param(wildcardKey: wildcardKey)
+
+    func paramAtIndex<T: PathType>(_ index: Int) -> T? {
+        let wildcard = route.wildcardPath.wildcards[index]
+        return param(forWildcard: wildcard)
     }
-    
-    private func param<T: PathType>(wildcardKey wildcardKey: String) -> T? {
-        guard let wildcardIndex = route.wildcardPath.indexOfWildcard(wildcardKey) else {
+
+    fileprivate func param<T: PathType>(forWildcard wildcard: String) -> T? {
+        guard let wildcardIndex = route.wildcardPath.indexOf(wildcard: wildcard) else {
             return nil
         }
-        
+
 		let value = request.path.components[wildcardIndex]
 		return T.fromString(value)
     }
-    
+
 }
