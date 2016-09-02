@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 46;
+    rootObject = __RootObject_;
+    objects = {
+        __RootObject_ = {
+            isa = PBXProject;
+            attributes = {LastUpgradeCheck = 9999;};
+            buildConfigurationList = ___RootConfs_;
+            compatibilityVersion = 'Xcode 3.2';
+            developmentRegion = English;
+            hasScannedForEncodings = 0;
+            knownRegions = (en);
+            mainGroup = ___RootGroup_;
+            productRefGroup = ____Products_;
+            projectDirPath = '';
+            projectRoot = '';
+            targets = (______Target_Switchboard, ______Target_SwitchboardTests);
+        };
+        '__PBXFileRef_Package.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Package.swift';
+            sourceTree = '<group>';
+        };
+        ___RootGroup_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_Package.swift', _____Configs_, _____Sources_,  Dependencies_, _______Tests_, ____Products_);
+            sourceTree = '<group>';
+        };
+        _______Group_Switchboard = {
+            isa = PBXGroup;
+            name = 'Switchboard';
+            path = 'Sources';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Sources/MatchedRequest.swift', '__PBXFileRef_Sources/Path.swift', '__PBXFileRef_Sources/PathType.swift', '__PBXFileRef_Sources/Request.swift', '__PBXFileRef_Sources/Response.swift', '__PBXFileRef_Sources/Route.swift', '__PBXFileRef_Sources/RouteHandlers.swift', '__PBXFileRef_Sources/Router.swift', '__PBXFileRef_Sources/RouterExtensions.swift', '__PBXFileRef_Sources/StatusCode.swift', '__PBXFileRef_Sources/WildcardPath.swift');
+        };
+        '__PBXFileRef_Sources/MatchedRequest.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'MatchedRequest.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Path.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Path.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/PathType.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'PathType.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Request.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Request.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Response.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Response.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Route.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Route.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/RouteHandlers.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'RouteHandlers.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Router.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Router.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/RouterExtensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'RouterExtensions.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/StatusCode.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'StatusCode.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/WildcardPath.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'WildcardPath.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_Switchboard = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_Switchboard;
+            buildPhases = (CompilePhase_Switchboard, ___LinkPhase_Switchboard);
+            buildRules = ();
+            dependencies = ();
+            name = 'Switchboard';
+            productName = Switchboard;
+            productReference = _____Product_Switchboard;
+            productType = 'com.apple.product-type.framework';
+        };
+        _____Product_Switchboard = {
+            isa = PBXFileReference;
+            explicitFileType = 'wrapper.framework';
+            path = 'Switchboard.framework';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_Switchboard = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Sources/MatchedRequest.swift', '__src_cc_ref_Sources/Path.swift', '__src_cc_ref_Sources/PathType.swift', '__src_cc_ref_Sources/Request.swift', '__src_cc_ref_Sources/Response.swift', '__src_cc_ref_Sources/Route.swift', '__src_cc_ref_Sources/RouteHandlers.swift', '__src_cc_ref_Sources/Router.swift', '__src_cc_ref_Sources/RouterExtensions.swift', '__src_cc_ref_Sources/StatusCode.swift', '__src_cc_ref_Sources/WildcardPath.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Sources/MatchedRequest.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/MatchedRequest.swift';
+        };
+        '__src_cc_ref_Sources/Path.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Path.swift';
+        };
+        '__src_cc_ref_Sources/PathType.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/PathType.swift';
+        };
+        '__src_cc_ref_Sources/Request.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Request.swift';
+        };
+        '__src_cc_ref_Sources/Response.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Response.swift';
+        };
+        '__src_cc_ref_Sources/Route.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Route.swift';
+        };
+        '__src_cc_ref_Sources/RouteHandlers.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/RouteHandlers.swift';
+        };
+        '__src_cc_ref_Sources/Router.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Router.swift';
+        };
+        '__src_cc_ref_Sources/RouterExtensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/RouterExtensions.swift';
+        };
+        '__src_cc_ref_Sources/StatusCode.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/StatusCode.swift';
+        };
+        '__src_cc_ref_Sources/WildcardPath.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/WildcardPath.swift';
+        };
+        ___LinkPhase_Switchboard = {
+            isa = PBXFrameworksBuildPhase;
+            files = ();
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        _______Confs_Switchboard = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_Switchboard, _ReleaseConf_Switchboard);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_Switchboard = {
+            isa = XCBuildConfiguration;
+            buildSettings = { SWIFT_VERSION = '3.0'; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; PRODUCT_MODULE_NAME = '$(TARGET_NAME:c99extidentifier)'; ENABLE_TESTABILITY = 'YES'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Switchboard.xcodeproj/Switchboard_Info.plist'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; SWIFT_OPTIMIZATION_LEVEL = '-Onone'; PRODUCT_BUNDLE_IDENTIFIER = 'Switchboard'; PRODUCT_NAME = '$(TARGET_NAME:c99extidentifier)'; OTHER_LDFLAGS = '$(inherited)'; };
+            name = Debug;
+        };
+        _ReleaseConf_Switchboard = {
+            isa = XCBuildConfiguration;
+            buildSettings = { SWIFT_VERSION = '3.0'; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; PRODUCT_MODULE_NAME = '$(TARGET_NAME:c99extidentifier)'; ENABLE_TESTABILITY = 'YES'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Switchboard.xcodeproj/Switchboard_Info.plist'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; PRODUCT_BUNDLE_IDENTIFIER = 'Switchboard'; PRODUCT_NAME = '$(TARGET_NAME:c99extidentifier)'; OTHER_LDFLAGS = '$(inherited)'; };
+            name = Release;
+        };
+        __Dependency_Switchboard = {
+            isa = PBXTargetDependency;
+            target = ______Target_Switchboard;
+        };
+        _______Group_SwitchboardTests = {
+            isa = PBXGroup;
+            name = 'SwitchboardTests';
+            path = 'Tests/SwitchboardTests';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Tests/SwitchboardTests/PathTests.swift', '__PBXFileRef_Tests/SwitchboardTests/PathTypeTests.swift', '__PBXFileRef_Tests/SwitchboardTests/RouterTests.swift', '__PBXFileRef_Tests/SwitchboardTests/WildcardPathTests.swift');
+        };
+        '__PBXFileRef_Tests/SwitchboardTests/PathTests.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'PathTests.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Tests/SwitchboardTests/PathTypeTests.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'PathTypeTests.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Tests/SwitchboardTests/RouterTests.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'RouterTests.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Tests/SwitchboardTests/WildcardPathTests.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'WildcardPathTests.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_SwitchboardTests = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_SwitchboardTests;
+            buildPhases = (CompilePhase_SwitchboardTests, ___LinkPhase_SwitchboardTests);
+            buildRules = ();
+            dependencies = (__Dependency_Switchboard);
+            name = 'SwitchboardTests';
+            productName = SwitchboardTests;
+            productReference = _____Product_SwitchboardTests;
+            productType = 'com.apple.product-type.bundle.unit-test';
+        };
+        _____Product_SwitchboardTests = {
+            isa = PBXFileReference;
+            explicitFileType = 'compiled.mach-o.wrapper.cfbundle';
+            path = 'SwitchboardTests.xctest';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_SwitchboardTests = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Tests/SwitchboardTests/PathTests.swift', '__src_cc_ref_Tests/SwitchboardTests/PathTypeTests.swift', '__src_cc_ref_Tests/SwitchboardTests/RouterTests.swift', '__src_cc_ref_Tests/SwitchboardTests/WildcardPathTests.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Tests/SwitchboardTests/PathTests.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Tests/SwitchboardTests/PathTests.swift';
+        };
+        '__src_cc_ref_Tests/SwitchboardTests/PathTypeTests.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Tests/SwitchboardTests/PathTypeTests.swift';
+        };
+        '__src_cc_ref_Tests/SwitchboardTests/RouterTests.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Tests/SwitchboardTests/RouterTests.swift';
+        };
+        '__src_cc_ref_Tests/SwitchboardTests/WildcardPathTests.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Tests/SwitchboardTests/WildcardPathTests.swift';
+        };
+        ___LinkPhase_SwitchboardTests = {
+            isa = PBXFrameworksBuildPhase;
+            files = (_LinkFileRef_Switchboard_via_SwitchboardTests);
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        _LinkFileRef_Switchboard_via_SwitchboardTests = {
+            isa = PBXBuildFile;
+            fileRef = _____Product_Switchboard;
+        };
+        _______Confs_SwitchboardTests = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_SwitchboardTests, _ReleaseConf_SwitchboardTests);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_SwitchboardTests = {
+            isa = XCBuildConfiguration;
+            buildSettings = { LD_RUNPATH_SEARCH_PATHS = '@loader_path/../Frameworks'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Switchboard.xcodeproj/SwitchboardTests_Info.plist'; SWIFT_OPTIMIZATION_LEVEL = '-Onone'; EMBEDDED_CONTENT_CONTAINS_SWIFT = 'YES'; OTHER_LDFLAGS = '$(inherited)'; SWIFT_VERSION = '3.0'; };
+            name = Debug;
+        };
+        _ReleaseConf_SwitchboardTests = {
+            isa = XCBuildConfiguration;
+            buildSettings = { LD_RUNPATH_SEARCH_PATHS = '@loader_path/../Frameworks'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Switchboard.xcodeproj/SwitchboardTests_Info.plist'; EMBEDDED_CONTENT_CONTAINS_SWIFT = 'YES'; OTHER_LDFLAGS = '$(inherited)'; SWIFT_VERSION = '3.0'; };
+            name = Release;
+        };
+        __Dependency_SwitchboardTests = {
+            isa = PBXTargetDependency;
+            target = ______Target_SwitchboardTests;
+        };
+        '__PBXFileRef_Switchboard.xcodeproj/Configs/Project.xcconfig' = {
+            isa = PBXFileReference;
+            lastKnownFileType = text.xcconfig;
+            path = 'Switchboard.xcodeproj/Configs/Project.xcconfig';
+            sourceTree = '<group>';
+        };
+        _____Configs_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_Switchboard.xcodeproj/Configs/Project.xcconfig');
+            name = Configs;
+            sourceTree = '<group>';
+        };
+        _____Sources_ = {
+            isa = PBXGroup;
+            children = (_______Group_Switchboard);
+            name = Sources;
+            sourceTree = '<group>';
+        };
+        _______Tests_ = {
+            isa = PBXGroup;
+            children = (_______Group_SwitchboardTests);
+            name = Tests;
+            sourceTree = '<group>';
+        };
+       TestProducts_ = {
+            isa = PBXGroup;
+            children = (_____Product_SwitchboardTests);
+            name = Tests;
+            sourceTree = '<group>';
+        };
+        ____Products_ = {
+            isa = PBXGroup;
+            children = (TestProducts_, _____Product_Switchboard);
+            name = Products;
+            sourceTree = '<group>';
+        };
+        _______Debug_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_Switchboard.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Debug;
+        };
+        _____Release_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_Switchboard.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Release;
+        };
+        ___RootConfs_ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (_______Debug_, _____Release_);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+    };
+}
