@@ -2,3 +2,5 @@ language: objective-c
 osx_image: xcode8
 xcode_project: Switchboard.xcodeproj
 xcode_scheme: Switchboard
+script:
+ - xcodebuild -project Switchboard.xcodeproj -scheme Switchboard build test
