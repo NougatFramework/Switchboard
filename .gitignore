@@ -62,3 +62,6 @@ Carthage/Build
 fastlane/report.xml
 fastlane/screenshots
 
+# Misc
+.DS_Store
+
