@@ -16,17 +16,14 @@ public func ==(lhs: Path, rhs: Path) -> Bool {
 extension Path: ExpressibleByStringLiteral {
 
 	public init(extendedGraphemeClusterLiteral value: String) {
-		// TODO: Remove dependency on Foundation?
 		components = (value as NSString).pathComponents
 	}
 
 	public init(stringLiteral value: String) {
-		// TODO: Remove dependency on Foundation?
 		components = (value as NSString).pathComponents
 	}
 
 	public init(unicodeScalarLiteral value: String) {
-		// TODO: Remove dependency on Foundation?
 		components = (value as NSString).pathComponents
 	}
 
